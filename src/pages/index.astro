@@ -1,15 +1,138 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Button from '../components/Button.astro';
+import Button from '../components/ButtonLink.astro';
 import Link from '../components/Link.astro';
 import { Image } from 'astro:assets';
 import thumbsup from "../assets/images/thumbsup.png";
+import Footer from "../components/Footer.astro";
 ---
+
 <MainLayout title="Titel">
-	<article>
-		<h1>Index overskrift</h1>
-		<Button>Klik!</Button>
-		<p>Link til <Link href="https://www.kea.dk" target="_blank">En anden side</Link></p>
-		<Image src={thumbsup} alt=""></Image>
-	</article>
+	<main>
+		
+		  <section class="relative  bg-primary ">
+			<!-- Billedet som baggrund -->
+			<img src="/background_hero.png" alt="Baggrund"
+				 class="absolute top-0 right-0 w-full h-full sm:w-5/12 object-cover z-0 pb-20 opacity-15" />
+		  
+			<!-- Alt indhold ovenpå billedet -->
+			<div class="relative  py-10 px-4">
+			  <!-- Tekst -->
+			  <h1 class="mb-8 sm:w-7/10 py-30 text-primary">
+				I design and develop digital experiences with a focus on storytelling and visual flow. Driven by curiosity, I bring ideas to life with detail and care.
+			  </h1>
+		  
+			  <!-- Portræt + tekst -->
+			  <div class="flex items-stretch gap-4 ">
+				<img src="/public/portræt.png" alt="Lucas Jakobsen" class="w-15 h-15 object-cover rounded-xl transform hover:scale-130 transition-transform duration-300" />
+				<div class="flex flex-col leading-tight space-y-0 transform hover:translate-x-2 transition-transform duration-300">
+				  <p class="text-lg font-bold text-gray-1000 text-primary">Lucas Jakobsen</p>
+				  <p class="text-lg text-tertiary">Multimediedesigner</p>
+				</div>
+			  </div>
+			</div>
+		  </section>
+		  <section class="bg-black py-10 md:py-32">
+			<div class="mx-auto w-full md:w-[95%] flex flex-col md:flex-row gap-6 px-4 md:px-0">
+		  
+			  <!-- Billeder -->
+			  <div class="flex flex-row md:flex-col gap-4 md:w-1/2 overflow-x-auto md:overflow-visible flex-nowrap">
+				<img src="/public/photo_series2.jpg" alt="Billede 1" class="w-64 md:w-full flex-shrink-0" />
+				<img src="/public/photo_series1.jpg" alt="Billede 2" class="w-64 md:w-full flex-shrink-0" />
+				<img src="/public/photo_series3.jpg" alt="Billede 3" class="w-64 md:w-full flex-shrink-0" />
+				<img src="/public/photo_series5.jpg" alt="Billede 5" class="w-64 md:w-full flex-shrink-0" />
+			  </div>
+		  
+			  <!-- Sticky tekst -->
+			  <div class="md:w-1/2 animate-fade-left animate-duration-1000 animate-delay-100 animate-ease-linear animate-normal">
+				<div class="md:sticky md:top-20">
+				  <h2 class="text-3xl font-bold mb-4 text-secondary">Projects</h2>
+				  <p class="text-secondary text-base">
+					In my previous work I’ve explored different areas of multimedia design — from creating visual identities and motion graphics to building interactive prototypes and responsive websites. I have worked with both individual passion projects and team-based assignments, where research, user testing, and collaboration played a central role. These projects have allowed me to develop a versatile skill set and a strong focus on combining creativity with usability.
+				  </p>
+				</div>
+			  </div>
+		  
+			</div>
+		  </section>
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+		  
+
+		  <section class="sticky top-0 w-full h-screen z-0">
+			<!-- Baggrundsbillede med overlay -->
+			<div class="absolute inset-0 bg-[url('/public/y.png')] bg-cover bg-center bg-no-repeat opacity-50"></div>
+			
+			<!-- Tekst ovenpå -->
+			<div class="relative z-10 py-48 px-4 flex bg-primary/90 h-full animate-fade-right animate-duration-1000 animate-delay-150">
+			  <h1 class="sm:w-8/10 text-primary">
+				“----I am a creative and curious multimedia design student with a passion for combining aesthetics and functionality. My approach to design is user-centered – I enjoy exploring how people interact with digital solutions and translating that into intuitive, visually appealing experiences.----”
+			  </h1>
+			</div>
+		  </section>
+		  
+		  
+		  
+		  <!-- Sticky MY SKILLS sektion -->
+<!-- Sticky MY SKILLS sektion -->
+
+<!-- Sticky MY SKILLS sektion -->
+<!-- MY SKILLS sektion -->
+<section class="w-full bg-black flex items-start justify-center h-screen sticky top-0 z-0">
+	<h1 class="text-center text-[17vw] font-bold leading-none text-secondary pt-20 opacity-0 animate-on-scroll">
+	  (MY SKILLS)
+	</h1>
+  </section>
+  
+  <style>
+  @keyframes fade-in {
+	0% { opacity: 0; transform: translateY(20px); }
+	100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-on-scroll {
+	opacity: 0;
+	transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  
+  .animate-on-scroll.scroll-visible {
+	opacity: 1;
+	animation: fade-in 1s forwards;
+  }
+  </style>
+  
+  <script>
+  const el = document.querySelector('.animate-on-scroll');
+  
+  window.addEventListener('scroll', () => {
+	const rect = el.getBoundingClientRect();
+	
+	// Hvis sektionen er 80% synlig
+	if(rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
+	  el.classList.add('scroll-visible');
+	} else {
+	  el.classList.remove('scroll-visible'); // fjerner animationen når man scroller væk
+	}
+  });
+  </script>
+  
+  
+  
+  <!-- Overlappende sektion med blur på baggrund -->
+  <section class="w-full flex items-center justify-center -mt-40 relative z-10 backdrop-blur-xl pb-64">
+	<div class="max-w-4xl  py-40 px-4">
+	  <p class="text-stone-200 text-xl leading-relaxed">
+		As a multimedia design student, I work across different creative disciplines, combining technical skills with a user-centered mindset. I have experience with Photoshop, Illustrator, Premiere Pro, and After Effects, which allows me to create visual identities, content, and storytelling across both digital and visual media. My process often includes concept development, research, and user testing, ensuring that my designs are not only creative but also effective. With knowledge of HTML, CSS, and JavaScript, I am able to bring ideas to life through functional and responsive web solutions. I enjoy working with UX/UI design, developing user-friendly experiences that balance aesthetics and usability. Through project management and collaboration, I ensure that every step of the design process is structured and goal-oriented.
+	  </p>
+	</div>
+  </section>
+  
+	</main>
 </MainLayout>

@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin '@tailwindcss/typography';
 @plugin '@tailwindcss/forms';
@@ -7,6 +7,15 @@
 
 @theme {
   /* Her tilføjes theme variable // tokens */
+  --color-primary: #e2d2c7;
+  --color-secondary: #101010;
+  --color-accent: #f59e0b;
+  --color-background: #f9fafb;
+  --color-foreground: #111827;
+
+  --text-primary: #101010;
+  --text-secondary: #e2d2c7;
+  --text-tertiary: #929292;
 }
 
 @layer base {
@@ -17,11 +26,35 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+  h1 {
+    @apply text-4xl font-bold; /* eksempel */
+  }
+  h2 {
+    @apply text-3xl font-bold; /* eksempel */
+  }
+
+  h3 {
+    @apply text-2xl font-semibold text-primary mb-3;
+  }
+
+  p {
+    @apply text-base text-tertiary mb-2;
+  }
 }
 
-@layer components{
-
+@layer components {
 }
-@layer utilities{
-  
+@layer utilities {
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .text-primary {
+    color: var(--text-primary);
+  }
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+  .text-tertiary {
+    color: var(--text-tertiary);
+  }
 }

@@ -1,6 +1,43 @@
 ---
+import ButtonLink from '../components/ButtonLink.astro';
 ---
-<div>
-<p>Footer - tilføj footerindhold</p>
-</div>
+
+<style>
+    /* Animation for pilen */
+    @keyframes arrow-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+  </style>
+  
+  <div class="bg-black">
+    <footer class="bg-primary text-gray-1000 w-full rounded-t-3xl overflow-hidden">
+      <div class="flex justify-between py-10 px-8">
+        <!-- Venstre side -->
+        <div class="flex flex-col">
+          <h2 class="text-3xl font-bold mb-2 text">Let's talk</h2>
+          <p class="text-sm">luja0002@stud.ek.dk</p>
+        </div>
+  
+        <!-- Højre side -->
+        <footer class="flex flex-col p-6 ">
+            <div class="flex flex-col">
+              <h2 class="text-3xl font-bold mb-2">Socials</h2>
+              <div class="flex flex-col items-start space-y-2">
+                <ButtonLink href="#" label="Instagram" />
+                <ButtonLink href="#" label="LinkedIn" />
+                <ButtonLink href="#" label="YouTube" />
+              </div>
+            </div>
+          </footer>
+      </div>
+  
+      <!-- Logo i bunden -->
+      <div class="w-full flex justify-center items-center py-6 border-gray-700">
+        <img src="/lucas_logo.png" alt="Logo" class="w-full h-auto" />
+      </div>
+    </footer>
+  </div>
+  
+  
   

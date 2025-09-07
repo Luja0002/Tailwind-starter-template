@@ -1,5 +1,34 @@
 ---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
 ---
-<div>
-Header - tilføj navigation mm.
-</div>
+<header x-data="{ showmenu: false }" class="bg-primary">
+    <div id="navbar" class="w-full flex flex-row justify-between items-center p-4">
+      <div id="logo">
+        <a href="/">
+          <img src="/public/lucas_logo.png" alt="Lucas Logo" class="h-12 w-auto" />
+        </a>
+      </div>
+  
+      <!-- Burger menu always visible -->
+      <button id="burgermenu" class="flex items-center gap-2 text-red-800" x-on:click="showmenu = !showmenu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+        </svg>
+        <span>Menu</span>
+      </button>
+    </div>
+  
+    <!-- Mobile menu shown when toggled -->
+    <nav id="mobilmenu" class="flex flex-col content-center"
+         x-show="showmenu" 
+         x-transition 
+         x-on:click="showmenu = false" 
+         x-on:click.outside="showmenu = false">
+      <ul class="border-t-2 border-b-2">
+        <li class="text-center py-2"><a href="/" class={currentPath === "" ? "font-bold" : ""}>Forside</a></li>
+        <li class="text-center py-2"><a href="/komponentbibliotek/" class={currentPath === "komponentbibliotek/" ? "font-bold" : ""}>Komponentbibliotek</a></li>
+      </ul>
+    </nav>
+  </header>
+  
